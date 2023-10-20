@@ -1,0 +1,9 @@
+FROM rust:latest
+
+WORKDIR /app
+
+RUN cargo install diesel_cli --no-default-features --features postgres
+
+ENV DATABASE_URL=postgres://root:root@localhost:5440/test
+
+CMD ["diesel"]
